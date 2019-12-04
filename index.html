@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>dragbble</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,intial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+		<script src="jquery.js"></script>
+		<script src="jquery-ui.js"></script>
+		<style>
+			.con{
+				width:300px;
+				padding: 10px;
+				float: left;
+				margin-top: 0px;
+				margin-left:20px;
+				margin-right:20px;
+				text-align: center;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+
+			}
+			.fruits_box{
+				width:300px;
+				float: left;
+				padding: 10px;
+				text-align: center;
+				margin-right:20px;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+
+			}
+			.flowers_box{
+				width:300px;
+				float: left;
+				padding: 10px;
+				text-align: center;
+				margin-right:10px;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+
+			}
+			img{
+				width:80px;
+				height:80px;
+				padding: 10px;
+			}
+			
+
+
+
+		</style>
+	</head>
+	<body>
+		<center><h1>Pickout flowers and fruits in the box</h1></center>
+		<hr>
+		<div class="con">
+			<h1>Flowers and Fruits boxes</h1>
+			<hr>
+			<img src="f1.png" alt="f1" class="fruits">
+			<img src="f2.png" alt="f2" class="fruits">
+			<img src="f3.png" alt="f3" class="fruits">
+			<img src="fl1.jpg" alt="fl1" class="flowers">
+			<img src="fl2.png" alt="fl2" class="flowers">
+			<img src="fl3.png" alt="fl3" class="flowers">
+			<img src="fl4.jpg" alt="fl4" class="flowers">
+		</div>
+		<div class="fruits_box">
+			<h1>Fruits box</h1>
+			<hr>
+		</div>
+		<div class="flowers_box">
+			<h1>Flowers box</h1>
+			<hr>
+		</div>
+
+
+
+		<script>
+			$(document).ready(function(){
+				$(".con img").draggable({
+					helper:'clone',
+					revert:'invalid',
+
+				});
+				$(".fruits_box").droppable({
+					accept:'.fruits',
+				   drop:function(event,ui){
+				   	$(".fruits_box").append(ui.draggable);
+				   }
+				});
+
+				$(".flowers_box").droppable({
+					accept:'.flowers',
+					drop:function(event,ui){
+						$(".flowers_box").append(ui.draggable);
+					}
+				});
+
+				
+
+
+
+			});
+			$(document).ready(function(){
+				$("div").draggable({
+					revert:true,
+				});
+
+			});
+
+
+
+		</script>
+	
+	</body>
+	</html>
